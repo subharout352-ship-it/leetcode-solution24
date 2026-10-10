@@ -1,0 +1,32 @@
+
+import random
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution(object):
+
+    def __init__(self, head):
+        """
+        :type head: Optional[ListNode]
+        """
+        self.head = head
+
+    def getRandom(self):
+        """
+        :rtype: int
+        """
+        current = self.head
+        result = None
+        count = 0
+
+        while current:
+            count += 1
+            if random.randint(1, count) == 1:
+                result = current.val
+            current = current.next
+
+        return result
