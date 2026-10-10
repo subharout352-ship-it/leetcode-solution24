@@ -1,0 +1,21 @@
+
+class Solution(object):
+    def deserialize(self, s):
+        """
+        :type s: str
+        :rtype: NestedInteger
+        """
+        import json
+
+        data = json.loads(s)
+
+        def build(item):
+            if isinstance(item, int):
+                return NestedInteger(item)
+
+            nested = NestedInteger()
+            for value in item:
+                nested.add(build(value))
+            return nested
+
+        return build(data)
