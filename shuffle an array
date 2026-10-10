@@ -1,0 +1,26 @@
+
+import random
+
+class Solution(object):
+
+    def __init__(self, nums):
+        """
+        :type nums: List[int]
+        """
+        self.original = nums[:]
+        self.nums = nums[:]
+
+    def reset(self):
+        """
+        :rtype: List[int]
+        """
+        self.nums = self.original[:]
+        return self.nums
+
+    def shuffle(self):
+        """
+        :rtype: List[int]
+        """
+        self.nums = self.original[:]
+        random.shuffle(self.nums)
+        return self.nums
